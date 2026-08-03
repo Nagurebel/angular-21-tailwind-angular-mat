@@ -1,4 +1,4 @@
-<label>{{ label }}</label>
+<!-- <label>{{ label }}</label>
 
 <div class="position-relative">
 
@@ -36,4 +36,40 @@
 
 </div>
 
-}
+} -->
+
+<mat-form-field appearance="outline" class="input-width">
+    <mat-label>{{ label }}</mat-label>
+
+    <input matInput [type]="type === 'password' ? (isHiden ? 'password' : 'text') : type" [placeholder]="placeholder"
+        [formControl]="control">
+
+    @if(type === 'password'){
+    <button mat-icon-button matSuffix type="button" (click)="toggleVisibility.emit()">
+
+        <mat-icon>
+            {{ isHiden ? 'visibility' : 'visibility_off' }}
+        </mat-icon>
+
+    </button>
+    }
+
+    @if(control.hasError('required')){
+    <mat-error style="color:red">
+        {{ label }} is required.
+    </mat-error>
+    }
+
+    @else if(control.hasError('minlength')){
+    <mat-error style="color:red">
+        Minimum {{ control.errors?.['minlength']?.requiredLength }} characters required.
+    </mat-error>
+    }
+
+    @else if(control.hasError('maxlength')){
+    <mat-error style="color:red">
+        Maximum {{ control.errors?.['maxlength']?.requiredLength }} characters allowed.
+    </mat-error>
+    }
+
+</mat-form-field>

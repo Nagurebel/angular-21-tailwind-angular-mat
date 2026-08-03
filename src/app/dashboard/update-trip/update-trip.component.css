@@ -5,3 +5,11 @@
     align-items: center;
     height: 80vh;
 }
+.form{
+    padding: 1em;
+    background: #ffffff;
+  min-width: 50%;
+  max-width: 500px;
+  width: 100%;
+}
+

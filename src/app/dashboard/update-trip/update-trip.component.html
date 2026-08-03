@@ -1,7 +1,11 @@
 <div class="container">
     <p>update-trip works!</p>
-    <form [formGroup]="updatedTripForm" (ngSubmit)="(submit())">
+    <form [formGroup]="updatedTripForm" (ngSubmit)="(submit())" class="form">
         <app-input label="title" [control]="titleContent" placeholder="enter title"></app-input>
-        <button type="submit" [disabled]="updatedTripForm.invalid">Submit</button>
+        <button type="submit" class="text-blue-300 hover:text-white bg-amber-400 hover:bg-red-300"
+            [disabled]="updatedTripForm.invalid">Submit</button>
     </form>
+    <div class="bg-blue-500 text-white p-6 rounded-lg">
+        Tailwind CSS is Working 🚀
+    </div>
 </div>

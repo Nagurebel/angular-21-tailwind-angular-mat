@@ -1,6 +1,7 @@
-<div class="trip-card">
-    <p>{{item.id}}</p>
+<div class="w-60 sm:w-70 md:w-70 xl:w-50 h-50 border border-black p-5 text-wrap">
+    <p class="text-amber-200 sm:text-black md:text-yellow-500 xl:text-pink-500">{{item.id}}</p>
     <p>{{item.title}}</p>
     <p>{{item.completed? "true":"false"}}</p>
-    <button (click)="updateTrip(item?.id)">update</button>
+    <button (click)="updateTrip(item?.id)"
+        class="text-blue-300 hover:text-white bg-amber-400 hover:bg-red-300">update</button>
 </div>

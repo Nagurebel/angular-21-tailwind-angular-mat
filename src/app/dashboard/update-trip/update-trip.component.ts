@@ -3,10 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { Trip } from '../../services/trip';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators, ɵInternalFormsSharedModule } from '@angular/forms';
 import { InputComponent } from "../../shared/input/input.component";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-update-trip',
-  imports: [ɵInternalFormsSharedModule, InputComponent, ReactiveFormsModule, FormsModule],
+  imports: [ɵInternalFormsSharedModule, InputComponent, ReactiveFormsModule, FormsModule, MatFormFieldModule, MatInputModule, MatPaginatorModule],
   templateUrl: './update-trip.component.html',
   styleUrl: './update-trip.component.css',
 })
@@ -16,6 +19,8 @@ export class UpdateTripComponent {
   private fb = inject(FormBuilder);
   tripId: number | null | undefined;
   updatedTripForm: FormGroup;
+
+  totalCount: number = 300;
 
   constructor() {
     this.updatedTripForm = this.fb.group({
