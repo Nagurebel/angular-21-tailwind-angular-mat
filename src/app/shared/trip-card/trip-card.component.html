@@ -1,0 +1,6 @@
+<div class="trip-card">
+    <p>{{item.id}}</p>
+    <p>{{item.title}}</p>
+    <p>{{item.completed? "true":"false"}}</p>
+    <button (click)="updateTrip(item?.id)">update</button>
+</div>

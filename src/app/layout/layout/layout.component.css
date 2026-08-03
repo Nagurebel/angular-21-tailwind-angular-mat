@@ -1,0 +1,24 @@
+.container{
+    display:flex;
+    height:calc(100vh - 60px);
+}
+
+app-sidebar{
+    width:10%;
+    transition:all .3s ease;
+}
+
+app-sidebar.collapsed{
+    width:5%;
+}
+
+.content{
+    width:90%;
+    transition:all .3s ease;
+    background-color:#b3aaaa;
+    overflow-y: auto;
+}
+
+.content.expanded{
+    width:95%;
+}

@@ -1,0 +1,39 @@
+<label>{{ label }}</label>
+
+<div class="position-relative">
+
+    <input class="form-control" [type]="type === 'password' ? (isHiden ? 'password' : 'text') : type"
+        [placeholder]="placeholder" [formControl]="control">
+    @if(type === 'password'){
+    <span class="position-absolute top-50 end-0 translate-middle-y me-3" style="cursor:pointer"
+        (click)="toggleVisibility.emit()">
+        {{ isHiden ? '👁️' : '🙈' }}
+    </span>
+    }
+</div>
+
+@if(control.touched && control.invalid){
+
+<div class="text-danger">
+
+    @if(control.hasError('required')){
+    <div>{{label}} is required.</div>
+    }
+    @else if(control.hasError('minlength')){
+    <div>
+        Minimum
+        {{control.errors?.['minlength']?.requiredLength}}
+        characters required.
+    </div>
+    }
+    @else if(control.hasError('maxlength')){
+    <div>
+        Maximum
+        {{control.errors?.['maxlength']?.requiredLength}}
+        characters allowed.
+    </div>
+    }
+
+</div>
+
+}

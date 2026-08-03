@@ -1,0 +1,14 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <app-input label="User name" [control]="u_mob_numController" placeholder="enter your name">
+    </app-input>
+    <br>
+    <app-input label="Password" type="password" [control]="u_pswdController" placeholder="enter your password"
+        [isHiden]="isHiden" (toggleVisibility)="handlePasswordVisibility()">
+    </app-input>
+    <br>
+    <button type="submit" [disabled]="loginForm.invalid">
+        Login
+    </button>
+
+</form>

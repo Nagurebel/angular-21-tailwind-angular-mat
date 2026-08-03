@@ -1,0 +1,15 @@
+<form [formGroup]="registerForm" (ngSubmit)="(onSubmit())">
+    <app-input label="User name" [control]="u_nameController" placeholder="enter your name"></app-input>
+    <app-input label="Mobile Number" [control]="u_mob_numController" placeholder="enter your mobile number">
+    </app-input>
+    <app-input label="Password" type="password" [control]="u_pswdController" placeholder="enter your password"
+        [isHiden]="isHiden" (toggleVisibility)="handlePasswordVisibility()">
+    </app-input>
+    <app-input label="Confirm Password" type="password" [control]="confirmPasswordController"
+        placeholder="confirm your password" [isHiden]="isConfirmHiden"
+        (toggleVisibility)="handleConfirmPasswordVisibility()">
+    </app-input>
+    <button type="submit" [disabled]="registerForm.invalid">
+        Register
+    </button>
+</form>

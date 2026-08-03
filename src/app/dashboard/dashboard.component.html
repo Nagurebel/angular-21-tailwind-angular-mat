@@ -1,0 +1,22 @@
+<div class="container">
+    @if(loading){
+    <div>Loading...</div>
+    }@else{
+    <p>dashboard works!</p>
+    <p>Total Trips : {{ tripData().length }}</p>
+    <input type="text" placeholder="Search Trip" #txt (input)="search.set(txt.value)">
+    <cdk-virtual-scroll-viewport itemSize="20" class="viewport">
+        <div class="section">
+            <!-- <app-trip-card *cdkVirtualFor="let trip of tripData" [item]="trip"> -->
+            <app-trip-card *cdkVirtualFor="let trip of filteredTrips()" [item]="trip">
+            </app-trip-card>
+        </div>
+
+    </cdk-virtual-scroll-viewport>
+    <!-- <div>
+        @for (item of tripData; track item.id) {
+        <app-trip-card [item]="item"></app-trip-card>
+        }
+    </div> -->
+    }
+</div>

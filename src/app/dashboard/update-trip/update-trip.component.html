@@ -1,0 +1,7 @@
+<div class="container">
+    <p>update-trip works!</p>
+    <form [formGroup]="updatedTripForm" (ngSubmit)="(submit())">
+        <app-input label="title" [control]="titleContent" placeholder="enter title"></app-input>
+        <button type="submit" [disabled]="updatedTripForm.invalid">Submit</button>
+    </form>
+</div>
